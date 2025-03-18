@@ -147,8 +147,6 @@ Snowflake allows secure and real-time sharing of data across organizations, team
 ---
 
 # Snowflake Hierarchical Structure
-
-## Structure Overview
 ## Snowflake Hierarchy
 
 <pre>
@@ -179,7 +177,10 @@ Snowflake allows secure and real-time sharing of data across organizations, team
 |--------------|----------------|
 | **Account**  | The top-most level representing your Snowflake account. <br> - Includes global Roles for access control. |
 | **Database** | Logical container grouping schemas and objects. <br> - Includes Roles for database-specific access control. |
-| **Schema**   | Namespace within a database containing related objects: <br> - **Table**: Stores structured data. <br> - **View**: Virtual table created using queries. <br> - **Stage**: Temporary or semi-permanent storage for raw data. <br> - Includes Roles for schema-specific access control. |
+| **Schema**   | Namespace within a database containing related objects: <br> - 
+| **Table**    | Stores structured data.  |
+| **View**:    | Virtual table created using queries.|
+| **Stage**:   | Temporary or semi-permanent storage for raw data.|
 
 
 ## Example: How Access Control Works in Snowflake
@@ -275,35 +276,24 @@ For workloads requiring **higher scalability** than a single **4X-Large** wareho
 ```sql
 -- Need SYSADMIN to create warehouses
 use role SYSADMIN;
-
 create warehouse PROD_REPORTING with
     warehouse_size     = SMALL
     auto_suspend        = 60
     auto_resume         = true
     initially_suspended = true
     comment = 'PROD Reporting Warehouse';
-
-
 use warehouse PROD_REPORTING;
-
 
 alter warehouse PROD_REPORTING set
     warehouse_size    = MEDIUM
     min_cluster_count = 1
     max_cluster_count = 5
     scaling_policy = ‘STANDARD’;   # STANDARD or ECONOMY
-
-
-
 '''
-
-
 ---
-# Snowflake Concepts
 
----------------------
 
-# Snowflake’s Columnar Storage
+## Snowflake’s Columnar Storage
 
 ## Overview
 
