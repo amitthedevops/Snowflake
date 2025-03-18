@@ -272,6 +272,7 @@ For workloads requiring **higher scalability** than a single **4X-Large** wareho
 
 
 ---
+
 ## commands
 ```sql
 -- Need SYSADMIN to create warehouses
@@ -289,7 +290,9 @@ alter warehouse PROD_REPORTING set
     min_cluster_count = 1
     max_cluster_count = 5
     scaling_policy = ‘STANDARD’;   # STANDARD or ECONOMY
-'''
+
+```
+
 ---
 
 
